@@ -46,12 +46,89 @@ char jogadadojogador(int *jog, char jogada)
     fflush(stdin);
     scanf(" %c",&jogada);
     (*jog)++;
-    if(*jog==3)
+    if((*jog)==3)
     {
     	(*jog)=1;
 	}
+	else if((*jog)==1)
+	{
+		velha[]
+	}
 	
 	return jogada;
+}
+
+int deuvelha (int *soma, char velha[3][3])
+{
+	//Verificação Soma de O
+    			if(velha[0][0]=='O' && velha[1][0]=='O' && velha[2][0]=='O')
+    			{
+    				*soma = 1;
+				}
+				else if(velha[0][1]=='O' && velha[1][1]=='O' && velha[2][1]=='O')
+    			{
+    				*soma = 1;
+				}
+				else if(velha[0][2]=='O' && velha[1][2]=='O' && velha[2][2]=='O')
+    			{
+    				*soma = 1;
+				}
+				else if(velha[0][0]=='O' && velha[0][1]=='O' && velha[0][2]=='O')
+    			{
+    				*soma = 1;
+				}
+				else if(velha[1][0]=='O' && velha[1][1]=='O' && velha[1][2]=='O')
+    			{
+    				*soma = 1;
+				}
+				else if(velha[2][0]=='O' && velha[2][1]=='O' && velha[2][2]=='O')
+    			{
+    				*soma = 1;
+				}
+				else if(velha[0][0]=='O' && velha[1][1]=='O' && velha[2][2]=='O')
+    			{
+    				*soma = 1;
+				}
+				else if(velha[0][2]=='O' && velha[1][1]=='O' && velha[2][0]=='O')
+    			{
+    				*soma = 1;
+				}
+				
+	//Verificação Soma de X
+				if(velha[0][0]=='X' && velha[1][0]=='X' && velha[2][0]=='X')
+    			{
+    				*soma = 1;
+				}
+				else if(velha[0][1]=='X' && velha[1][1]=='X' && velha[2][1]=='X')
+    			{
+    				*soma = 1;
+				}
+				else if(velha[0][2]=='X' && velha[1][2]=='X' && velha[2][2]=='X')
+    			{
+    				*soma = 1;
+				}
+				else if(velha[0][0]=='X' && velha[0][1]=='X' && velha[0][2]=='X')
+    			{
+    				*soma = 1;
+				}
+				else if(velha[1][0]=='X' && velha[1][1]=='X' && velha[1][2]=='X')
+    			{
+    				*soma = 1;
+				}
+				else if(velha[2][0]=='X' && velha[2][1]=='X' && velha[2][2]=='X')
+    			{
+    				*soma = 1;
+				}
+				else if(velha[0][0]=='X' && velha[1][1]=='X' && velha[2][2]=='X')
+    			{
+    				*soma = 1;
+				}
+				else if(velha[0][2]=='X' && velha[1][1]=='X' && velha[2][0]=='X')
+    			{
+    				*soma = 1;
+				}
+		return soma;
+	
 }
 
 int main ()
@@ -60,6 +137,7 @@ int main ()
     int jog = 1;
     int teste = 0
     int soma = 0;
+    int tentativas = 1;
     
     zerarmatriz(velha);
     
@@ -68,35 +146,12 @@ int main ()
 		abertura();
     	mostrarvelha(velha);
     	jogada = jogadadojogador(&jog, jogada);
-    	
-    			if(velha[0][0]=='O' && velha[1][j]=='O' && velha[2][j]=='O')
-    			{
-    				soma = 1;
-				}
-				else if(velha[1][j]=='O' && velha[1][j]=='O' && velha[1][j]=='O')
-    			{
-    				soma = 1;
-				}
-				else if(velha[2][j]=='O' && velha[2][j]=='O' && velha[2][j]=='O')
-    			{
-    				soma = 1;
-				}
-				if(velha[0][j]=='O' && velha[1][j]=='O' && velha[2][j]=='O')
-    			{
-    				soma = 1;
-				}
-				else if(velha[1][j]=='O' && velha[1][j]=='O' && velha[1][j]=='O')
-    			{
-    				soma = 1;
-				}
-				else if(velha[2][j]=='O' && velha[2][j]=='O' && velha[2][j]=='O')
-    			{
-    				soma = 1;
-				}
+    	soma = deuvelha(&soma, velha);
+    	tentativas++;
 		
     	system("cls");
 		
-	}while(!teste);
+	}while(!soma || tentavivas == 9);
     
         
 	return 0;
