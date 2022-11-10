@@ -8,14 +8,24 @@ struct data
 	int ano;	
 };
 
+int PassaDia(struct data teste)
+{
+	return teste.dia;
+}
+
 int main ()
 {
 
-	struct data teste = {15,4,1999};
+	struct data teste;
+	int rdia;
 	
-	printf("%d", teste.mes);
+	scanf("%d",&teste.dia);	
+	scanf("%d",&teste.mes);	
+	scanf("%d",&teste.ano);	
 	
-
+	rdia = PassaDia(teste);
+	
+	printf("Dia = %d", rdia);
 
 	return 0;
 }
