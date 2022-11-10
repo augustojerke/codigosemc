@@ -1,15 +1,25 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void ParImpar (int num)
+void Primo (int num)
 {	
-	if(num%2==0)
+	int div = 0;
+	
+	for(int i = 1; i<=num; i++)
 	{
-		printf("%d eh par\n", num);
+		if(num%i==0)
+		{
+			div++;
+		}
+	}
+	
+	if(div==2)
+	{
+		printf("Numero primo!\n");
 	}
 	else
 	{
-		printf("%d eh impar\n", num);
+		printf("Numero nao primo!\n");
 	}
 }
 
@@ -24,7 +34,7 @@ int main ()
 		}while(num<0);
 		
 		if(num==0) break;
-		ParImpar(num);	
+		Primo(num);	
 	}
 	
 	printf("\nFim do Programa!");
